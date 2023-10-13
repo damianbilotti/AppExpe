@@ -75,7 +75,7 @@ def contacto(req):
             data.mensaje = formularioContacto.cleaned_data['mensaje']
             data.save()
 
-            return render (req, "inicio.html", {"mensaje": f"Su mensaje ha sido enviado con éxito, muchas gracias!"})
+            return render (req, "inicio", {"mensaje": f"Su mensaje ha sido enviado con éxito, muchas gracias!"})
     
     formularioContacto = FormularioContacto
     return render(req, 'contacto.html')
@@ -87,7 +87,7 @@ def buscar(req: HttpRequest):
         eventos = Evento.objects.filter(nombre__icontains=busqueda)
         return render (req, "resultadosBusqueda.html", {"eventos": eventos})
     else: 
-        return render(req, 'inicio.html')
+        return render(req, 'inicio')
 
 
 def login_request(req):
@@ -101,11 +101,11 @@ def login_request(req):
             
             usuario = authenticate(username=usuario, password=contraseña)
             
-            if usuario is not None:
+            if usuario :
                 login(req, usuario)
-                return render(req, "inicio.html")           
+                return redirect( "inicio" )           
         else:
-            return render(req, "inicio.html", {"mensaje": f"Datos incorrectos."})
+            return render(req, "inicio", {"mensaje": f"Datos incorrectos."})
     else:
         formulario = AuthenticationForm()
         return render(req, "login.html", {"formulario":formulario})
@@ -128,6 +128,30 @@ def registroUsuario(req):
     else: 
         formulario = RegistroUsuario
         return render (req, "registroUsuario.html", {"formulario": formulario})
+    
+def editar_perfil(req):
+
+    usuario = req.user
+    if req.method == 'POST':
+
+        miFormulario = EditarUsuario(req.POST, instance=req.user)
+
+        if miFormulario.is_valid():
+            
+            data = miFormulario.cleaned_data
+            usuario.first_name = data["first_name"]
+            usuario.last_name = data["last_name"]
+            usuario.email = data["email"]
+            usuario.set_password(data["password1"])
+            usuario.save()
+
+            return render(req, "inicio.html", {"mensaje": "Datos actualizados con éxito!"})
+        else:
+            return render(req, "editar-perfil.html", {"miFormulario": miFormulario})
+
+    else:
+        miFormulario = EditarUsuario(instance=usuario)
+        return render(req, "editar-perfil.html", {"miFormulario": miFormulario})
         
 
 

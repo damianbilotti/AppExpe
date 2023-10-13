@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block ContenidoQueCambia %}
+    
+    <style>
+        .contenedor{
+            background-color: #f9e9c7;
+            height: 190vh;
+            width: 210vh;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+    </style>
+        <div class="contenedor">
+                <h1>Wonderfull Farfalla!</h1>
+                <body>
+                    <h2>Un mundo mágico te está esperando...</h2>
+                    <img src="{% static 'images/wonderfull.png' %}" width ="500" y height="500" alt="">
+                    <br class="clear">                   
+                    <h2>El grupo de estudiantes de la Escuela de Arte Dramático nos invita a sumergirnos en este lisérgico universo
+                    </h2>
+                    <br class="clear">
+                    <img src="{% static 'images/wonderfull2.png' %}" width ="500" y height="500" alt="">
+                    <br class="clear">
+                    <h2>
+                        Habra funciones todos los domingos de Octubre y Noviembre!
+                    </h2>    
+                    <br class="clear">
+                    <img src="{% static 'images/wonderfull3.png' %}" width ="500" y height="500" alt="">
+                    <br class="clear">                    
+                </body>
+        </div>
+
+
+{% endblock ContenidoQueCambia %}

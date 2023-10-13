@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block ContenidoQueCambia %}
+    
+    <style>
+        .contenedor{
+            background-color: #f9e9c7;
+            height: 180vh;
+            width: 204vh;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+    </style>
+        <div class="contenedor">
+                <h1>Soulmates en vivo</h1>
+                <body>
+                    <h2>Funk, Soul, Disco y algo de Pop</h2>
+                    <img src="{% static 'images/soulmates.jpg' %}" width ="600" y height="450" alt="">
+                    <br class="clear">                   
+                    <h2>Un repertorio de clásicos y no tan clásicos con mucho flow  
+                    </h2>
+                    <br class="clear">
+                    <img src="{% static 'images/soulmates2.jpg' %}" width ="600" y height="450" alt="">
+                    <br class="clear">    
+                    <h2>Recorriendo los 70s y 80s y llegando al NeoSoul la banda no va a dejar que te quedes sentado!</h2>   
+                    <br class="clear">
+                    <img src="{% static 'images/soulmates3.jpg' %}" width ="600" y height="450" alt="">
+                    <br class="clear">           
+                </body>
+        </div>
+
+
+{% endblock ContenidoQueCambia %}

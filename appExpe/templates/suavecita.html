@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block ContenidoQueCambia %}
+    
+    <style>
+        .contenedor{
+            background-color: #f9e9c7;
+            height: 180vh;
+            width: 204vh;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+    </style>
+        <div class="contenedor">
+                <h1>Suavecita</h1>
+                <body>
+                    <h2>El unipersonal de Camila Peralta que sigue sorprendiendo</h2>
+                    <img src="{% static 'images/suavecita.jpg' %}" width ="600" y height="450" alt="">
+                    <br class="clear">                   
+                    <h2>Cada jueves en el Nün aparece Suavecita, una mujer ordinaria con un poder extraordinario (algunos dirán sobrenatural) 
+                    </h2>
+                    <br class="clear">
+                    <img src="{% static 'images/suavecita2.jpg' %}" width ="600" y height="450" alt="">
+                    <br class="clear">    
+                    <h2>una madre soltera dispuesta a dar un salto de fe para mantener a su hija</h2>              
+                </body>
+        </div>
+
+
+{% endblock ContenidoQueCambia %}

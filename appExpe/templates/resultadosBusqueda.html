@@ -3,7 +3,7 @@
 
 {% block ContenidoQueCambia %} {% csrf_token %}
 
-    <p>Resultados de la búsqueda</p>
+    <h1><p>Resultados de la búsqueda</p>
 
     {% if eventos %}
     <ul>        
@@ -11,7 +11,9 @@
             <li>{{evento}}</li>
         {% endfor %}           
     </ul>
-    {% endif %}
+    {% else %}
+    <p>No se encontraron resultados</p>
+    {% endif %} </h1>
 
 {% endblock ContenidoQueCambia %}
 

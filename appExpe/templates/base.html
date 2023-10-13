@@ -43,7 +43,75 @@ $(function() {
 {% block ContenidoQueCambia %}
   
 {% endblock ContenidoQueCambia %}
-  
+<div class="wrapper col3">
+  <div class="container">
+    <div class="content">
+      <div id="topstory">
+        <h2>Novedades de Nuestra Cultura</h2>
+        <ul>
+          <li><img src="{% static 'images/fica.png' %}" height="130" width="190" alt="" />
+            <p>Dj Fica se presenta todas las semanas en diferentes pubs y bares de CABA</p>
+            <p>Su repertorio y estilos van del DownTempo y OrganicHouse al Psytrance </p>
+            <p class="readmore"><a href="{% url 'djfica' %}">Continúa leyendo &raquo;</a></p>
+          </li>
+          <li><img src="{% static 'images/soulmates.jpg' %}" height="130" width="190" alt="" />
+            <p>La banda se presenta en el Centro Cultural JJ el próximo Sabado 12/12</p>
+            <p>Incluyendo clásicos de los 70s, 80s con versiones originales y un sonido moderno</p>
+            <p class="readmore"><a href="{% url 'soulmates' %}">Continúa leyendo &raquo;</a></p>
+          </li>
+          <li class="last"><img src="{% static 'images/wonderfull.png' %}" height="130" width="190" alt="" />
+            <p>La Escuela Metropolitana de Arte Dramático presenta todos los años los proyectos </p>
+            <p>desarrollados íntegramente por sus estudiantes de 4 año</p>
+            <p class="readmore"><a href="{% url 'wonderfullfarfalla' %}">Continúa leyendo &raquo;</a></p>
+          </li>
+        </ul>
+        <br class="clear" />
+      </div>
+      <div id="latestnews">
+        <h2>Lo que no te podés perder!</h2>
+        <ul>
+          <li>
+            <div class="imgholder"><img src="{% static 'images/misterio.jpg' %}" height="130" width="130" alt="" /></div>
+            <div class="latestnews">
+              <h2>Se Acabó el Misterio!</h2>
+              <p>Pioneros de lo que dieron a llamar #ElectroGlamFunkPunkRock, la banda de Lanús se presenta cada vez más psicodélica y nos propone un viaje por su música... </p>
+              <p class="readmore"><a href="{% url 'seacaboelmisterio' %}">Continúa leyendo &raquo;</a></p>
+            </div>
+            <br class="clear" />
+          </li>
+          <li class="last">
+            <div class="imgholder"><img src="{% static 'images/suavecita.jpg' %}" height="130" width="130" alt="" /></div>
+            <div class="latestnews">
+              <h2>Suavecita</h2>
+              <p>Camila Peralta encarna a una madre soltera dispuesta a dar un salto de fe para mantener a su hija. "Yo soy una persona muy terrenal pero tengo cierto interés por estos mundos, es algo que me atraviesa y no puedo negar", plantea la actriz.</p>
+              <p class="readmore"><a href="{% url 'suavecita' %}">Continúa leyendo &raquo;</a></p>
+            </div>
+            <br class="clear" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <div class="sponsors">
+        <h2>Site Sponsors</h2>
+        <div class="b_250"><a href="#"><img src="{% static 'images/eventos.png'  %}" width="250" height="250" alt="" /></a></div>
+        <div class="b_125">
+          <ul>
+            <li><a href="#"><img src="{% static 'images/cine.png' %}" width="125" height="125" alt="" /></a></li>
+            <li><a href='{% url "danza" %}'><img src="{% static 'images/danza.png' %}" width="125" height="125" alt="" /></a></li>
+            <li><a href="#"><img src="{% static 'images/visuales.png' %}" width="125" height="125" alt="" /></a></li>
+            <li><a href='{% url "teatro" %}'><img src="{% static 'images/teatro.png' %}" width="125" height="125" alt="" /></a></li>
+            <li><a href='{% url "literatura" %}'><img src="{% static 'images/literatura.png' %}" width="125" height="125" alt="" /></a></li>
+            <li class="last"><a href='{% url "musica" %}'><img src="{% static 'images/musica.png' %}" width="125" height="125" alt="" /></a></li>
+          </ul>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
 <div class="wrapper col4">
   <div id="footer">
     <div class="box1">

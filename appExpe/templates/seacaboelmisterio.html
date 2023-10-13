@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block ContenidoQueCambia %}
+    
+    <style>
+        .contenedor{
+            background-color: #f9e9c7;
+            height: 150vh;
+            width: 210vh;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+    </style>
+        <div class="contenedor">
+                <h1>Se Acabó el Misterio</h1>
+                <body>
+                    <h2>La banda de Lanús se presenta en vivo</h2>
+                    <img src="{% static 'images/misterio.jpg' %}" width ="500" y height="300" alt="">
+                    <br class="clear">                   
+                    <h2>Entradas disponibles en el lugar y a través de sus redes sociales, 
+                        En diciembre darán el último show del año presetando su nuevo material!
+                    </h2>
+                    <br class="clear">
+                    <img src="{% static 'images/misterio2.jpg' %}" width ="500" y height="500" alt="">
+                    <br class="clear">
+                    <h2>
+                        Podes escucharlos en todas las plataformas!
+                    </h2>    
+                    <br class="clear">
+                    <img src="{% static 'images/misterio3.jpg' %}" width ="500" y height="500" alt="">
+                    <br class="clear">                  
+                </body>
+        </div>
+
+
+{% endblock ContenidoQueCambia %}

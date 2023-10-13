@@ -48,36 +48,31 @@ $(function() {
         <h2>1. Soulmates Souleó en El Quetzal</h2>
         <p>La banda se presentó el pasado Sabado 12-10-2023 y rebalsó la noche de buen Soul, Funk y Pop</p>
       </div>
-      <p class="readmore"><a href="#">Continúa leyendo &raquo;</a></p>
-      <img src="{% static 'images/1.png' %}" alt="" /> </div>
-    <div class="featured_box">
+      <img src="{% static 'soulmates.jpg' %}" alt="" /> </div>
+    <div class="featured_box" >
       <div class="floater">
         <h2>2. Se acabó el Misterio</h2>
         <p>Pioneros de lo que dieron a llamar ElectroGlamFunkPunkRock, explotaron en el Centro Cultural JJ</p>
       </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="{% static 'images/misterio.jpg' %}" alt="" /> </div>
+      <img src="{% static 'images/misterio3.jpg' %}" alt="" /> </div>
     <div class="featured_box">
       <div class="floater">
-        <h2>3. Dapiensociis temper donec</h2>
-        <p>Pharetiumurna habitur et enim pellentesque phasellus aliquam nunc quis justo nam. Lobortororci dapibulum ac intesquet ut id sed intesque nec alique.</p>
+        <h2>3. Suavecita</h2>
+        <p>“Fue muy reveladora. Era bastante chica y descubrí que la pavada bien vista, eso que más me divierte, los personajes estallados y arquetípicos, todo eso puede contar una historia, ser poético e incluso hacer una crítica social”</p>
       </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="{% static 'images/demo/930x375.gif' %}" alt="" /> </div>
+      <img src="{% static 'images/suavecita2.jpg' %}" alt="" /> </div>
     <div class="featured_box">
       <div class="floater">
-        <h2>4. Dapiensociis temper donec</h2>
-        <p>Pharetiumurna habitur et enim pellentesque phasellus aliquam nunc quis justo nam. Lobortororci dapibulum ac intesquet ut id sed intesque nec alique.</p>
+        <h2>4. Wonderfull Farfalla</h2>
+        <p>La increíble aventura a la que nos invita la Escuela Metropolitana de Arte Dramático!</p>
       </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="{% static 'images/demo/930x375.gif' %}" alt="" /> </div>
+      <img src="{% static 'images/wonderfull3.png' %}" alt="" /> </div>
     <div class="featured_box">
       <div class="floater">
-        <h2>5. Nullain convallis ris elis</h2>
-        <p>Nullamcorpervivamus nisl in sed adipit donec feugiat lor vel velit volutpat. Wisihabitur diculisi ac curabitur cursuspendreris sociis sed eger ipsum.</p>
+        <h2>5. Dj Set - DownTempo</h2>
+        <p>Dj Fica continúa sus presentaciones en diferentes bares de la ciudad de Buenos Aires</p>
       </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="{% static 'images/demo/930x375.gif' %}" alt="" /> </div>
+      <img src="{% static 'images/fica2.png' %}" alt="" /> </div>
   </div>
 </div>
 <!-- ####################################################################################################### -->
@@ -85,44 +80,44 @@ $(function() {
   <div class="container">
     <div class="content">
       <div id="topstory">
-        <h2>Feugiatrutrum rhoncus semper</h2>
+        <h2>Novedades de Nuestra Cultura</h2>
         <ul>
-          <li><img src="{% static 'images/demo/190x130.gif' %}" alt="" />
-            <p>Nullamlacus dui ipsum conseqlo borttis non euisque morbipen a sdapibulum orna.</p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          <li><img src="{% static 'images/fica.png' %}" height="130" width="190" alt="" />
+            <p>Dj Fica se presenta todas las semanas en diferentes pubs y bares de CABA</p>
+            <p>Su repertorio y estilos van del DownTempo y OrganicHouse al Psytrance </p>
+            <p class="readmore"><a href="{% url 'djfica' %}">Continúa leyendo &raquo;</a></p>
           </li>
-          <li><img src="{% static 'images/demo/190x130.gif' %}" alt="" />
-            <p>Nullamlacus dui ipsum conseqlo borttis non euisque morbipen a sdapibulum orna.</p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          <li><img src="{% static 'images/soulmates.jpg' %}" height="130" width="190" alt="" />
+            <p>La banda se presenta en el Centro Cultural JJ el próximo Sabado 12/12</p>
+            <p>Incluyendo clásicos de los 70s, 80s con versiones originales y un sonido moderno</p>
+            <p class="readmore"><a href="{% url 'soulmates' %}">Continúa leyendo &raquo;</a></p>
           </li>
-          <li class="last"><img src="{% static 'images/demo/190x130.gif' %}" alt="" />
-            <p>Nullamlacus dui ipsum conseqlo borttis non euisque morbipen a sdapibulum orna.</p>
-            <p>Urnau ltrices quis curabitur pha sellent esque congue magnisve stib ulum quismodo nulla et.</p>
-            <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+          <li class="last"><img src="{% static 'images/wonderfull.png' %}" height="130" width="190" alt="" />
+            <p>La Escuela Metropolitana de Arte Dramático presenta todos los años los proyectos </p>
+            <p>desarrollados íntegramente por sus estudiantes de 4 año</p>
+            <p class="readmore"><a href="{% url 'wonderfullfarfalla' %}">Continúa leyendo &raquo;</a></p>
           </li>
         </ul>
         <br class="clear" />
       </div>
       <div id="latestnews">
-        <h2>Feugiatrutrum rhoncus semper</h2>
+        <h2>Lo que no te podés perder!</h2>
         <ul>
           <li>
-            <div class="imgholder"><img src="images/demo/imgl.gif" alt="" /></div>
+            <div class="imgholder"><img src="{% static 'images/misterio.jpg' %}" height="130" width="130" alt="" /></div>
             <div class="latestnews">
-              <h2>About This Template !</h2>
-              <p>This is a W3C standards compliant free website template from <a href="http://www.os-templates.com/">OS Templates</a>. This template is distributed using a <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>, which allows you to use and modify the template for both personal and commercial use when you keep the provided credit links in the footer. For more CSS templates visit <a href="http://www.os-templates.com/">Free Website Templates</a>.</p>
-              <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+              <h2>Se Acabó el Misterio!</h2>
+              <p>Pioneros de lo que dieron a llamar #ElectroGlamFunkPunkRock, la banda de Lanús se presenta cada vez más psicodélica y nos propone un viaje por su música... </p>
+              <p class="readmore"><a href="{% url 'seacaboelmisterio' %}">Continúa leyendo &raquo;</a></p>
             </div>
             <br class="clear" />
           </li>
           <li class="last">
-            <div class="imgholder"><img src="images/demo/imgl.gif" alt="" /></div>
+            <div class="imgholder"><img src="{% static 'images/suavecita.jpg' %}" height="130" width="130" alt="" /></div>
             <div class="latestnews">
-              <h2>Indonectetus facilis leo nibh</h2>
-              <p>Attincidunt vel nam a maurisus lacinia consectetus magnisl sed ac morbi. Inmaurisus habitur pretium eu et ac vest penatibus id lacus parturpis. Maecenaset adipiscinia tellentum nullam velit et a convallis curabitae vitae laoreet niseros ligula sem sed susp en at.</p>
-              <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
+              <h2>Suavecita</h2>
+              <p>Camila Peralta encarna a una madre soltera dispuesta a dar un salto de fe para mantener a su hija. "Yo soy una persona muy terrenal pero tengo cierto interés por estos mundos, es algo que me atraviesa y no puedo negar", plantea la actriz.</p>
+              <p class="readmore"><a href="{% url 'suavecita' %}">Continúa leyendo &raquo;</a></p>
             </div>
             <br class="clear" />
           </li>
@@ -132,7 +127,7 @@ $(function() {
     <div class="column">
       <div class="sponsors">
         <h2>Site Sponsors</h2>
-        <div class="b_250"><a href="#"><img src="{% static 'images/eventos.png'  %}" width="250" height="250" alt="" /></a></div>
+        <div class="b_250"><a href="{% url 'listaEventos' %}"><img src="{% static 'images/eventos.png'  %}" width="250" height="250" alt="" /></a></div>
         <div class="b_125">
           <ul>
             <li><a href="#"><img src="{% static 'images/cine.png' %}" width="125" height="125" alt="" /></a></li>
@@ -154,7 +149,7 @@ $(function() {
   <div id="footer">
     <div class="box1">
       <h2>Sobre Nosotros</h2>
-      <img class="imgl" src="{% static 'images/demo/imgl.gif' %}" alt="" />
+      <img class="imgl" src="{% static 'images/collage.jpg' %}" width="125" height="125" alt="" />
       <p>Expedición Cultural es una revista de Cultura Argentina autogestiva que busca generar redes entre artistas locales para difundir nuestra Cultura de manera independiente</p>
       <p>Portortornec condimenterdum eget consectetuer condis.</p>
     </div>
