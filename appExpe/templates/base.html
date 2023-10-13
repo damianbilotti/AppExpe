@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   {% load static %}
+<title>Expedición Cultural</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="{% static 'layout/styles/layout.css' %}" type="text/css" />
+<script type="text/javascript" src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'layout/scripts/jquery.cycle.min.js' %}"></script>
+<script type="text/javascript">
+$(function() {
+    $('#featured_slide').after('<div id="fsn"><ul id="fs_pagination">').cycle({
+        timeout: 5000,
+        fx: 'fade',
+        pager: '#fs_pagination',
+        pause: 1,
+        pauseOnPagerHover: 0
+    });
+});
+</script>
+</head>
+{% include 'navbar.html' %}
+<!-- ####################################################################################################### -->
+<div class="wrapper col1">
+  <div id="header">
+    <div id="topnav">
+      <ul>
+        <li class="last"><a href='{% url "literatura" %}'>Literatura</a><span style="text-transform:capitalize">Literatura</span></li>
+        <li><a href='{% url "danza" %}'>Danza</a><span style="text-transform:capitalize">Danza</span></li>
+        <li><a href='{% url "teatro" %}'>Carteleras</a><span style="text-transform:capitalize">Teatro</span></li>
+        <li><a href='{% url "musica" %}'>Música</a><span style="text-transform:capitalize">La Escena Under</span></li>
+      </ul>
+    </div>
+    <div id="logo">
+      <h1><a href="/appExpe/inicio"><strong>E</strong>pedición <strong>C</strong>ultural</a></h1>
+      <p style="text-transform:capitalize">Explorando nuestra Cultura</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+
+{% block ContenidoQueCambia %}
+  
+{% endblock ContenidoQueCambia %}
+  
+<div class="wrapper col4">
+  <div id="footer">
+    <div class="box1">
+      <h2>Sobre Nosotros</h2>
+      <img class="imgl" src="{% static 'images/demo/imgl.gif' %}" alt="" />
+      <p>Expedición Cultural es una revista de Cultura Argentina autogestiva que busca generar redes entre artistas locales para difundir nuestra Cultura de manera independiente</p>
+      <p>Portortornec condimenterdum eget consectetuer condis.</p>
+    </div>
+    <div class="box contactdetails">
+      <h2>Información de contacto</h2>
+      <ul>
+        <li>Seguinos en Redes Sociales!</li>
+        <li>@expcultural</li>
+        <li>Envianos tu contenido!</li>
+        <li>Email: expcultural@gmail.com</li>
+        <li class="last">LinkedIn: <a href="#">Company Profile</a></li>
+      </ul>
+    </div>
+    <div class="box flickrbox">
+      <div class="wrap">
+        <div class="fix"></div>
+        <div class="fix"></div>
+      </div>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col5">
+  <div id="copyright">
+    <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <br class="clear" />
+  </div>
+</div>
+</body>
+</html>

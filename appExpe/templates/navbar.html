@@ -1,0 +1,28 @@
+<div class="wrapper col0">
+    <div id="topline">
+      <ul> 
+
+            {% if user.is_authenticated %}
+                {% if url_avatar %}
+                    <img src="{{url_avatar}}" height="30px" alt="avatar">            
+                {% endif %}
+                <li><p>Bienvenido {{user.username}}</p></li> 
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'registroUsuario'%}" >Registrate</a></li>
+            {% endif %}
+        <li><a href="{% url 'contacto' %}">Contactanos!</a></li>
+      </ul>
+      <div id="search">
+        <form action="{% url 'buscar' %}" method="get"> 
+          <fieldset>
+            <legend>Site Search</legend>
+            <input type="text" name="busqueda" value="Buceá nuestra cultura&hellip;"  onfocus="this.value=(this.value=='Buceá nuestra cultura&hellip;')? '' : this.value ;" />
+            <button type="submit">Buscar</button>
+          </fieldset>
+        </form>
+      </div>
+      <br class="clear" />
+    </div>
+  </div>
