@@ -137,7 +137,7 @@ def creaArtista(req):
         if formulario.is_valid():
 
             data = formulario.cleaned_data
-            artista = Artista(nombre=data["nombre"], disciplina=data["disciplina"], descripcion=data["descripcion"], link=data["link"], imagen=data["imagen"])
+            artista = Artista(nombre=data["nombre"], categoria=data["categoria"], disciplina=data["disciplina"], descripcion=data["descripcion"], link=data["link"], imagen=data["imagen"])
             artista.save()
 
             return render(req, "inicio.html", {"mensaje": "Artista creado con éxito!"})
@@ -186,6 +186,7 @@ def editarArtista(req, id):
 
             data = formulario.cleaned_data
             artista.nombre = data["nombre"]
+            artista.categoria = data["categoria"]
             artista.disciplina = data["disciplina"]
             artista.descripcion = data["descripcion"]
             artista.link = data["link"]
@@ -197,6 +198,7 @@ def editarArtista(req, id):
 
         formulario = ArtistaFormulario(initial={
             "nombre": artista.nombre,
+            "categoria": artista.categoria,
             "disciplina": artista.disciplina,
             "descripcion": artista.descripcion,
             "link": artista.link, 
@@ -287,6 +289,30 @@ def editarEvento(req, id):
 
         })
         return render(req, "editarEvento.html", {"formulario": formulario, "id": evento.id})
+    
+
+@login_required(login_url='login')   
+def creaEstablecimiento(req): 
+
+    if req.method == 'POST':
+
+        formulario = EstablecimientoFormulario(req.POST)
+
+        if formulario.is_valid():
+
+            data = formulario.cleaned_data
+            establecimiento = Establecimiento(nombre=data["nombre"], 
+            direccion=data["direccion"])
+
+            establecimiento.save()
+
+            return render(req, "inicio.html", {"mensaje": "Establecimiento cargado con éxito!"})
+        else: 
+            return render(req, "inicio.html", {"mensaje": "Formulario inválido, por favor, volvé a intentarlo."})
+    
+    else:
+        formulario = EstablecimientoFormulario
+        return render (req, "creaEstablecimiento.html", {"formulario": formulario})
         
 
 

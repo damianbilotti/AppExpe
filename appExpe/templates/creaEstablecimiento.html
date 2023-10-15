@@ -6,10 +6,10 @@
       <div id="topnav">
       </div>
       <div id="logo">
-        <h1><a href="/appExpe/inicio"><strong>Crea tu Evento!</strong> <strong></strong></a> </h1>
+        <h1><a href="/appExpe/inicio"><strong>Carga un nuevo Establecimiento</strong> <strong></strong></a> </h1>
         <br>
          <br>
-         <form action = "{% url 'creaEvento' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+         <form method = "post"enctype="multipart/form-data"> {% csrf_token %}
              {% csrf_token %}
              <table>
                 {{ formulario.as_table }}
@@ -17,9 +17,6 @@
              <br>
              <input class="btn btn-primary" type="submit" value="Crear">
          </form>
-         <br>
-         <br class="clear">
-         <h2> <a href="{% url 'creaEstablecimiento' %}">El lugar donde se realiza el evento no está en nuestra base de datos? Agregalo haciendo click aquí! </a></h2>
          <br>
          <br>
         <p></p>

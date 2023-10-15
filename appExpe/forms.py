@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import *
 
 
+
 class FormularioContacto(forms.ModelForm):
     class Meta:
         model = Contacto
@@ -55,12 +56,21 @@ class ArtistaFormulario(forms.ModelForm):
 
     class Meta:
         model= Artista
-        fields= ("nombre", "disciplina", "descripcion", "link", "imagen")
+        fields= ("nombre", "categoria", "disciplina", "descripcion", "link", "imagen")
 
 
 class EventoFormulario(forms.ModelForm):
+        fecha = forms.DateField(
+        widget= forms.TextInput(attrs={'type': 'date'}),
+        input_formats=['%Y-%m-%d'])
     
-    class Meta: 
-        model= Evento
-        fields= ("nombre", "artista", "fecha", "lugar", "texto", "imagen", "imagen2", "imagen3", "url")
+        class Meta: 
+            model= Evento
+            fields= ("nombre", "categoria", "artista", "fecha", "lugar", "texto", "imagen", "imagen2", "imagen3", "url")
+
+class EstablecimientoFormulario(forms.ModelForm):
+
+    class Meta:
+        model= Establecimiento
+        fields= ("nombre", "direccion")
          

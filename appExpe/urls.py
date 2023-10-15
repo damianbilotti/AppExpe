@@ -31,5 +31,6 @@ urlpatterns = [
     path('eliminaEvento/<int:id>', eliminaEvento, name="eliminaEvento"),
     path('editarEvento/<int:id>', editarEvento, name="editarEvento"),
     path('listaEventos/', listaEventos, name="listaEventos"),
+    path('creaEstablecimiento', creaEstablecimiento, name="creaEstablecimiento"),
 
 ]

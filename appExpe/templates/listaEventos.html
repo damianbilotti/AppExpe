@@ -4,6 +4,13 @@
 {% load static %}
 <html>
     <head>
+        <style>
+            /* Define un estilo específico para las imágenes en este template */
+            .imagen-limitada {
+                max-width: 200px; /* Establece el ancho máximo */
+                max-height: 150px; /* Establece la altura máxima */
+            }
+        </style>
 
         <body>       
             <div class="wrapper col1">
@@ -22,7 +29,12 @@
                                 {{ evento.fecha }}  -
                                 {{ evento.lugar }}  -
                                 {{ evento.texto }}  -
-                                <img src="{% static '{{ evento.imagen }}' %}" alt="">
+                                
+                                {% if evento.imagen %}
+                                <img src="{{ evento.imagen.url }}" alt=" {{evento.nombre}}" class="imagen-limitada">
+                                {% endif %}
+                                    
+                                
                             </li>
                             <div style="display: flex; column-gap: 5px;">
                                 <form action="{% url 'eliminaEvento' evento.id %}" method="post">{% csrf_token %}

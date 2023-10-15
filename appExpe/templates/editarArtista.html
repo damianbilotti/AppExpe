@@ -10,7 +10,7 @@
         <br>
          <br>
          <ul>
-            <form action="{% url 'editarArtista' id %}" method="post">{% csrf_token %}
+            <form action="{% url 'editarArtista' id %}" method="post" enctype="multipart/form-data">{% csrf_token %}
 
                 {{formulario.as_div}}
         
