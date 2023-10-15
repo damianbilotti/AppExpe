@@ -10,11 +10,10 @@ class ContactForm(ModelForm):
         model = FormularioContacto
         fields = ['nombre', 'email', 'disciplina', 'mensaje']
 
-
-
 class FormularioBusqueda(forms.Form):
 
     busqueda = forms.CharField(max_length=50)
+
 
 class RegistroUsuario(UserCreationForm):
     email = forms.EmailField(label="Email")
@@ -24,7 +23,6 @@ class RegistroUsuario(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "password1", "password2", "email"]
-
 
 
 class EditarUsuario(UserChangeForm):
@@ -51,4 +49,18 @@ class EditarUsuario(UserChangeForm):
         if password1 != password2:
             raise forms.ValidationError("Las contraseñas no coinciden!!!!")
         return password2
+
+
+class ArtistaFormulario(forms.ModelForm):
+
+    class Meta:
+        model= Artista
+        fields= ("nombre", "disciplina", "descripcion", "link", "imagen")
+
+
+class EventoFormulario(forms.ModelForm):
+    
+    class Meta: 
+        model= Evento
+        fields= ("nombre", "artista", "fecha", "lugar", "texto", "imagen", "imagen2", "imagen3", "url")
          

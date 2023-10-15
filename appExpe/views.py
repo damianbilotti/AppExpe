@@ -8,38 +8,14 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, CreateView, UpdateView 
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 
 
 # Create your views here.
-
-def evento(req, nombre, fecha, lugar):
-
-    evento = Evento(nombre=nombre, fecha=fecha, lugar=lugar)
-    evento.save()
-
-    return HttpResponse(f"""
-<p>Evento: {evento.nombre} el día {evento.fecha} en {evento.lugar}- creado con exito! </p>
-""")
-
-# def creaNota (req):
-
- #   if req.method == 'POST':
-
-
-
-
-
-
-
-
 ###################################################################################################################################
 
-def listaEventos (req):
-
-    evento = Evento.objects.all()
-
-    return render(req, "lista-eventos.html", {"lista_eventos": evento})
 
 def musica (req):
 
@@ -105,7 +81,7 @@ def login_request(req):
                 login(req, usuario)
                 return redirect( "inicio" )           
         else:
-            return render(req, "inicio", {"mensaje": f"Datos incorrectos."})
+            return render(req, "inicio.html", {"mensaje": f"Datos incorrectos."})
     else:
         formulario = AuthenticationForm()
         return render(req, "login.html", {"formulario":formulario})
@@ -129,7 +105,7 @@ def registroUsuario(req):
         formulario = RegistroUsuario
         return render (req, "registroUsuario.html", {"formulario": formulario})
     
-def editar_perfil(req):
+def editarPerfil(req):
 
     usuario = req.user
     if req.method == 'POST':
@@ -147,11 +123,173 @@ def editar_perfil(req):
 
             return render(req, "inicio.html", {"mensaje": "Datos actualizados con éxito!"})
         else:
-            return render(req, "editar-perfil.html", {"miFormulario": miFormulario})
+            return render(req, "perfil.html", {"miFormulario": miFormulario})
 
     else:
         miFormulario = EditarUsuario(instance=usuario)
-        return render(req, "editar-perfil.html", {"miFormulario": miFormulario})
+        return render(req, "perfil.html", {"miFormulario": miFormulario})
+    
+
+@login_required(login_url='login')   
+def creaArtista(req): 
+
+    if req.method == 'POST':
+
+        formulario = ArtistaFormulario(req.POST)
+
+        if formulario.is_valid():
+
+            data = formulario.cleaned_data
+            artista = Artista(nombre=data["nombre"], disciplina=data["disciplina"], descripcion=data["descripcion"], link=data["link"], imagen=data["imagen"])
+            artista.save()
+
+            return render(req, "inicio.html", {"mensaje": "Artista creado con éxito!"})
+        else: 
+            return render(req, "inicio.html", {"mensaje": "Formulario inválido, por favor, volvé a intentarlo."})
+    
+    else:
+        formulario = ArtistaFormulario
+        return render (req, "creaArtista.html", {"formulario": formulario})
+    
+
+def listaArtistas(req):
+
+    artistas = Artista.objects.all()
+
+    return render(req, "listaArtistas.html", {"artistas": artistas})
+
+def listaEventos(req):
+
+    eventos = Evento.objects.all()
+
+    return render(req, "listaEventos.html", {"eventos": eventos}) 
+
+@staff_member_required(login_url='login')
+def eliminaArtista(req, id):
+
+    if req.method == 'POST':
+
+        artista = Artista.objects.get(id=id)
+        artista.delete()
+
+        artistas = Artista.objects.all()
+
+        return render(req, "listaArtistas.html", {"artistas": artistas})
+    
+@staff_member_required(login_url='login')
+def editarArtista(req, id):
+
+    artista = Artista.objects.get(id=id)
+
+    if req.method == 'POST':
+
+        formulario = ArtistaFormulario(req.POST)
+
+        if formulario.is_valid():
+
+            data = formulario.cleaned_data
+            artista.nombre = data["nombre"]
+            artista.disciplina = data["disciplina"]
+            artista.descripcion = data["descripcion"]
+            artista.link = data["link"]
+            artista.imagen = data["imagen"]
+            artista.save()
+
+            return render(req, "inicio.html")
+    else:
+
+        formulario = ArtistaFormulario(initial={
+            "nombre": artista.nombre,
+            "disciplina": artista.disciplina,
+            "descripcion": artista.descripcion,
+            "link": artista.link, 
+            "imagen": artista.imagen,
+
+        })
+        return render(req, "editarArtista.html", {"formulario": formulario, "id": artista.id})
+    
+
+@login_required(login_url='login')   
+def creaEvento(req): 
+
+    if req.method == 'POST':
+
+        formulario = EventoFormulario(req.POST)
+
+        if formulario.is_valid():
+
+            data = formulario.cleaned_data
+            evento = Evento(nombre=data["nombre"], 
+            artista=data["artista"], 
+            fecha=data["fecha"], 
+            lugar=data["lugar"], 
+            texto=data["texto"], 
+            imagen=data["imagen"], 
+            imagen2=data["imagen2"], 
+            imagen3=data["imagen3"], 
+            url=data["url"])
+            evento.save()
+
+            return render(req, "inicio.html", {"mensaje": "Evento creado con éxito!"})
+        else: 
+            return render(req, "inicio.html", {"mensaje": "Formulario inválido, por favor, volvé a intentarlo."})
+    
+    else:
+        formulario = EventoFormulario
+        return render (req, "creaEvento.html", {"formulario": formulario})
+    
+
+@staff_member_required(login_url='login')
+def eliminaEvento(req, id):
+
+    if req.method == 'POST':
+
+        evento = Evento.objects.get(id=id)
+        evento.delete()
+
+        eventos = Evento.objects.all()
+
+        return render(req, "listaEventos.html", {"eventos": eventos})
+    
+@staff_member_required(login_url='login')
+def editarEvento(req, id):
+
+    evento = Evento.objects.get(id=id)
+
+    if req.method == 'POST':
+
+        formulario = EventoFormulario(req.POST)
+
+        if formulario.is_valid():
+
+            data = formulario.cleaned_data
+            evento.nombre = data["nombre"]
+            evento.artista = data["artista"]
+            evento.fecha = data["fecha"]
+            evento.lugar = data["lugar"]
+            evento.texto = data["texto"]
+            evento.imagen = data["imagen"]
+            evento.imagen2 = data["imagen2"]
+            evento.imagen3 = data["imagen3"]
+            evento.url = data["url"]
+            evento.save()
+
+            return render(req, "inicio.html")
+    else:
+
+        formulario = EventoFormulario(initial={
+            "nombre": evento.nombre,
+            "artista": evento.artista,
+            "fecha": evento.fecha,
+            "lugar": evento.lugar, 
+            "texto": evento.texto,
+            "imagen": evento.imagen,
+            "imagen2": evento.imagen2,
+            "imagen3": evento.imagen3,
+            "url": evento.url,
+
+        })
+        return render(req, "editarEvento.html", {"formulario": formulario, "id": evento.id})
         
 
 

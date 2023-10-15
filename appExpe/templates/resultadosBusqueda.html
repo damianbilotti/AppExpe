@@ -8,7 +8,14 @@
     {% if eventos %}
     <ul>        
         {% for evento in eventos %}
-            <li>{{evento}}</li>
+        <li style="font-size:large; font-weight: bold; color:brown;"> 
+            {{ evento.nombre }}  -
+            {{ evento.artista }}  -
+            {{ evento.fecha }}  -
+            {{ evento.lugar }}  -
+            {{ evento.texto }}  -
+            <img src="{{ evento.imagen }}" alt="">
+        </li>
         {% endfor %}           
     </ul>
     {% else %}

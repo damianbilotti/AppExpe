@@ -21,59 +21,29 @@ $(function() {
 </script>
 </head>
 {% include 'navbar.html' %}
+
 <!-- ####################################################################################################### -->
+
 <div class="wrapper col1">
   <div id="header">
-    <div id="topnav">
+    <div class="let" id="topnav">
       <ul>
-        <li class="last"><a href='{% url "literatura" %}'>Literatura</a><span style="text-transform:capitalize">Literatura</span></li>
-        <li><a href='{% url "danza" %}'>Danza</a><span style="text-transform:capitalize">Danza</span></li>
-        <li><a href='{% url "teatro" %}'>Carteleras</a><span style="text-transform:capitalize">Teatro</span></li>
-        <li><a href='{% url "musica" %}'>Música</a><span style="text-transform:capitalize">La Escena Under</span></li>
+        <li class="last"><a href='{% url "listaEventos" %}'>Eventos</a><span style="text-transform:none">Cargá tu evento!</span></li>
+        <li><a href='{% url "listaArtistas" %}'>Artistas</a><span style="text-transform:none">Registrados</span></li>
+        <li><a href='{% url "creaArtista" %}'>Sumate</a><span style="text-transform:none">a Expedición!</span></li>
       </ul>
     </div>
     <div id="logo">
       <h1><a href="/appExpe/inicio"><strong>E</strong>pedición <strong>C</strong>ultural</a></h1>
       <p style="text-transform:capitalize">Explorando nuestra Cultura</p>
     </div>
-    <p style="text-transform:capitalize"> {{mensaje}} </p>
     <br class="clear" />
   </div>
 </div>
 <!-- ####################################################################################################### -->
-<div class="wrapper col2">
-  <div id="featured_slide">
-    <div class="featured_box">
-      <div class="floater">
-        <h2>1. Soulmates Souleó en El Quetzal</h2>
-        <p>La banda se presentó el pasado Sabado 12-10-2023 y rebalsó la noche de buen Soul, Funk y Pop</p>
-      </div>
-      <img src="{% static 'soulmates.jpg' %}" alt="" /> </div>
-    <div class="featured_box" >
-      <div class="floater">
-        <h2>2. Se acabó el Misterio</h2>
-        <p>Pioneros de lo que dieron a llamar ElectroGlamFunkPunkRock, explotaron en el Centro Cultural JJ</p>
-      </div>
-      <img src="{% static 'images/misterio3.jpg' %}" alt="" /> </div>
-    <div class="featured_box">
-      <div class="floater">
-        <h2>3. Suavecita</h2>
-        <p>“Fue muy reveladora. Era bastante chica y descubrí que la pavada bien vista, eso que más me divierte, los personajes estallados y arquetípicos, todo eso puede contar una historia, ser poético e incluso hacer una crítica social”</p>
-      </div>
-      <img src="{% static 'images/suavecita2.jpg' %}" alt="" /> </div>
-    <div class="featured_box">
-      <div class="floater">
-        <h2>4. Wonderfull Farfalla</h2>
-        <p>La increíble aventura a la que nos invita la Escuela Metropolitana de Arte Dramático!</p>
-      </div>
-      <img src="{% static 'images/wonderfull3.png' %}" alt="" /> </div>
-    <div class="featured_box">
-      <div class="floater">
-        <h2>5. Dj Set - DownTempo</h2>
-        <p>Dj Fica continúa sus presentaciones en diferentes bares de la ciudad de Buenos Aires</p>
-      </div>
-      <img src="{% static 'images/fica2.png' %}" alt="" /> </div>
-  </div>
+<div>
+  <br class="clear">
+  <h2>    <p style="text-transform:none"> {{mensaje}} </p></h2>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper col3">
@@ -126,7 +96,7 @@ $(function() {
     </div>
     <div class="column">
       <div class="sponsors">
-        <h2>Site Sponsors</h2>
+        <h2>Navegá</h2>
         <div class="b_250"><a href="{% url 'listaEventos' %}"><img src="{% static 'images/eventos.png'  %}" width="250" height="250" alt="" /></a></div>
         <div class="b_125">
           <ul>

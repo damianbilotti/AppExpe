@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block ContenidoQueCambia %}
+<div class="wrapper col1">
+    <div id="header">
+      <div id="topnav">
+      </div>
+      <div id="logo">
+        <h1><a href="/appExpe/inicio"><strong>Eventos Registrados</strong> <strong></strong></a> </h1>
+        <br>
+         <br>
+         <ul>
+            <form action="{% url 'editarEvento' id %}" method="post">{% csrf_token %}
+
+                {{formulario.as_div}}
+        
+                <button type="submit"> Actualizar </button>
+            </form>
+        </ul>
+         <br>
+         <br>
+        <p></p>
+      </div>
+      <br class="clear" />
+    </div>
+</div>
+</body>
+</html>
+{% endblock ContenidoQueCambia %}

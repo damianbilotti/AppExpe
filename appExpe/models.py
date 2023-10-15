@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.contrib.auth.models import User
+
 
 
 # Create your models here.
@@ -13,11 +15,18 @@ class FormularioContacto(models.Model):
 
     def __str__(self):
         return self.nombre
-    
+        
+# 
+
+
 class Artista(models.Model):
 
     nombre = models.CharField(null=True, max_length=40)
     disciplina = models.CharField(null=True, max_length=40)
+    descripcion = models.CharField(null=True, max_length=500)
+    link = models.URLField(null=True, max_length=250, blank=True)
+    imagen = models.ImageField(upload_to='appExpe\static\images', null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.nombre
@@ -45,12 +54,12 @@ class Evento(models.Model):
     def __str__(self):
         return self.nombre
     def image_table(self):
-        if self.image:
-            return mark_safe('<img src="{}" height="50" />'.format(self.image.url))
+        if self.imagen:
+            return mark_safe('<img src="{}" height="50" />'.format(self.imagen.url))
         else:
             return mark_safe('<p>Sem imagem</p>')
 
-
+# El modelo de notas fue creado para agregar contenido de entrevistas
 
 class Notas(models.Model):
 
@@ -73,10 +82,3 @@ class Notas(models.Model):
             return mark_safe('<p>Sem imagem</p>')   
     
 
-class Usuario(models.Model):
-
-    nombre = models.CharField(max_length=40)
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.nombre

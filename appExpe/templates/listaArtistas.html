@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block ContenidoQueCambia %}
+
+
+<div class="wrapper col1">
+    <div id="header">
+      <div id="topnav">
+      </div>
+      <div id="logo">
+        <h1><a href="/appExpe/inicio"><strong>Artistas Registrados</strong> <strong></strong></a> </h1>
+        <br>
+         <br>
+         <ul>
+            {% for artista in artistas %}
+                <li style="font-size:large; font-weight: bold; color:brown;"> 
+                     {{ artista.nombre }}  -
+                     {{ artista.disciplina }}  -
+                     {{ artista.descripcion }}  -
+                </li>
+                <div style="display: flex; column-gap: 5px;">
+                    <form action="{% url 'eliminaArtista' artista.id %}" method="post">{% csrf_token %}
+                        <button type="submit"> Eliminar </button>
+                    </form>
+                    <button>
+                        <a href="{% url 'editarArtista' artista.id %}">Editar</a>
+                    </button>
+                </div>
+            {% endfor %}
+        </ul>
+         <br>
+         <h2><a href="{% url 'creaArtista' %}"><strong>Date de alta como artista para crear tu evento!</strong> <strong></strong></a> </h2>
+         <br>
+        <p></p>
+      </div>
+      <br class="clear" />
+    </div>
+</div>
+</body>
+</html>
+{% endblock ContenidoQueCambia %}

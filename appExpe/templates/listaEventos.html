@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block ContenidoQueCambia %}
+{% load static %}
+<html>
+    <head>
+
+        <body>       
+            <div class="wrapper col1">
+                <div id="header">
+                <div id="topnav">
+                </div>
+                <div id="logo">
+                    <h1><a href="/appExpe/inicio"><strong>Eventos Registrados</strong> <strong></strong></a> </h1>
+                    <br>
+                    <br>
+                    <ul>
+                        {% for evento in eventos %}
+                            <li style="font-size:large; font-weight: bold; color:brown;"> 
+                                {{ evento.nombre }}  -
+                                {{ evento.artista }}  -
+                                {{ evento.fecha }}  -
+                                {{ evento.lugar }}  -
+                                {{ evento.texto }}  -
+                                <img src="{% static '{{ evento.imagen }}' %}" alt="">
+                            </li>
+                            <div style="display: flex; column-gap: 5px;">
+                                <form action="{% url 'eliminaEvento' evento.id %}" method="post">{% csrf_token %}
+                                    <button type="submit"> Eliminar </button>
+                                </form>
+                                <button>
+                                    <a href="{% url 'editarEvento' evento.id %}">Editar</a>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                    <h2><a href="{% url 'creaEvento' %}"><strong>Creá tu Evento!</strong> <strong></strong></a> </h2>
+                    <br>
+                    <p></p>
+                </div>
+                <br class="clear" />
+                </div>
+            </div>
+        </body>
+</head>
+</html>
+{% endblock ContenidoQueCambia %}

@@ -21,21 +21,23 @@ $(function() {
 </script>
 </head>
 {% include 'navbar.html' %}
+
 <!-- ####################################################################################################### -->
+
 <div class="wrapper col1">
   <div id="header">
-    <div id="topnav">
+    <div class="let" id="topnav">
       <ul>
-        <li class="last"><a href='{% url "literatura" %}'>Literatura</a><span style="text-transform:capitalize">Literatura</span></li>
-        <li><a href='{% url "danza" %}'>Danza</a><span style="text-transform:capitalize">Danza</span></li>
-        <li><a href='{% url "teatro" %}'>Carteleras</a><span style="text-transform:capitalize">Teatro</span></li>
-        <li><a href='{% url "musica" %}'>Música</a><span style="text-transform:capitalize">La Escena Under</span></li>
+        <li class="last"><a href='{% url "listaEventos" %}'>Eventos</a><span style="text-transform:none">Próximos Eventos!</span></li>
+        <li><a href='{% url "listaArtistas" %}'>Artistas</a><span style="text-transform:none">Registrados</span></li>
+        <li><a href='{% url "creaArtista" %}'>Sumate</a><span style="text-transform:none">a Expedición!</span></li>
       </ul>
     </div>
     <div id="logo">
       <h1><a href="/appExpe/inicio"><strong>E</strong>pedición <strong>C</strong>ultural</a></h1>
       <p style="text-transform:capitalize">Explorando nuestra Cultura</p>
     </div>
+    <p style="text-transform:capitalize"> {{mensaje}} </p>
     <br class="clear" />
   </div>
 </div>
