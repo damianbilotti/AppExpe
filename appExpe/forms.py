@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from .models import *
 
 
-class ContactForm(ModelForm):
+class FormularioContacto(forms.ModelForm):
     class Meta:
-        model = FormularioContacto
-        fields = ['nombre', 'email', 'disciplina', 'mensaje']
+        model = Contacto
+        fields = ['nombre', 'email', 'mensaje']
 
 class FormularioBusqueda(forms.Form):
 

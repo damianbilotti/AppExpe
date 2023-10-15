@@ -2,37 +2,26 @@
 
 
 {% block ContenidoQueCambia %}
+
 <div class="wrapper col1">
-  <div id="header">
-    <div id="topnav">
-    </div>
-    <div id="logo">
-      <h4><a href="/appExpe/inicio"><strong>Contacto</strong> <strong></strong></a> </h4>
+    <div id="header">
+      <div id="topnav">
+      </div>
+      <div id="logo">
+        <h2><strong>Contactanos!</strong> <strong></strong></a> </h2>
+        <br>
+        <form method = "post">
+        {% csrf_token %}
+        <table>
+       {{ formulario.as_table }}
+        </table>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Ingresar">
+        <p></p>
+      </div>
       <br class="clear" />
-        <h2>Envienos un mensaje</h2>
-        <br class="clear" />
-        </div>
-        <div class="content">
-         <form id="contacto" action="" method="post">
-              {% csrf_token %}
-              <fieldset>
-              <input name="name" type="text" id="name" placeholder="Nombre" required="">
-              </fieldset>
-             <fieldset>
-              <input name="email" type="text" id="email" placeholder="Email" required="">
-              </fieldset>
-             <fieldset>
-              <input name="subject" type="text" id="subject" placeholder="Asunto">
-              </fieldset>
-             <fieldset>
-              <textarea name="message" rows="6" id="message" placeholder="Su Mensaje" required=""></textarea>
-             </fieldset>
-              <fieldset>
-              <button type="submit" id="form-submit" class="main-button">Enviar</button>
-              </fieldset>
-      <br>
     </div>
-    <br class="clear" />
-  </div>
 </div>
+ 
+
  {% endblock ContenidoQueCambia %}

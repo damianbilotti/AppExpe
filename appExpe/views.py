@@ -40,21 +40,18 @@ def literatura(req):
 def contacto(req):
 
     if req.method == 'POST':
+        formulario = FormularioContacto(req.POST)
 
-        formularioContacto = FormularioContacto(req.POST)
-
-        if formularioContacto.is_valid():
-            data = FormularioContacto
-            data.nombre = formularioContacto.cleaned_data['nombre']
-            data.email = formularioContacto.cleaned_data['email']
-            data.disciplina = formularioContacto.cleaned_data['disciplina']
-            data.mensaje = formularioContacto.cleaned_data['mensaje']
-            data.save()
-
-            return render (req, "inicio", {"mensaje": f"Su mensaje ha sido enviado con éxito, muchas gracias!"})
-    
-    formularioContacto = FormularioContacto
-    return render(req, 'contacto.html')
+        if formulario.is_valid():
+            data = Contacto()
+            data.nombre = formulario.cleaned_data['nombre']
+            data.email = formulario.cleaned_data['email']
+            data.mensaje = formulario.cleaned_data['mensaje']
+            formulario.save()
+            return render(req, "inicio.html", {"mensaje": "Gracias por comunicarse con nosotros, le responderemos a la brevedad."})
+    else:
+        formulario = FormularioContacto
+        return render (req, "contacto.html", {"formulario": formulario })
     
 
 def buscar(req: HttpRequest):
