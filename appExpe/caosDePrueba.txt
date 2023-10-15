@@ -1,0 +1,14 @@
+Voy a documentar aca algunos casos de prueba:
+
+Caso de prueba N1:
+ Al realizar una busqueda se muestran los resultados de los nombres de eventos que coincidan con la busqueda, solo si se respeta exactamente la tipografía, 
+ para el caso del evento creado bajo el nombre de la banda "se acabó el misterio", no encuentra resultados si no colocamos el tilde. Tampoco encuentra resultados filtrando por 
+ nombre del artista o el Establecimiento.
+
+
+ Caso de prueba N2:
+ Intenté hacer que el template Eventos cargue las imagenes que tenían asociados los modelos pero no encontré la solución.
+
+ Caso de prueba N3:
+
+

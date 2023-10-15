@@ -132,7 +132,7 @@ def creaArtista(req):
 
     if req.method == 'POST':
 
-        formulario = ArtistaFormulario(req.POST)
+        formulario = ArtistaFormulario(req.POST, req.FILES)
 
         if formulario.is_valid():
 
@@ -180,7 +180,7 @@ def editarArtista(req, id):
 
     if req.method == 'POST':
 
-        formulario = ArtistaFormulario(req.POST)
+        formulario = ArtistaFormulario(req.POST, req.FILES)
 
         if formulario.is_valid():
 
@@ -211,7 +211,7 @@ def creaEvento(req):
 
     if req.method == 'POST':
 
-        formulario = EventoFormulario(req.POST)
+        formulario = EventoFormulario(req.POST, req.FILES)
 
         if formulario.is_valid():
 
@@ -255,7 +255,7 @@ def editarEvento(req, id):
 
     if req.method == 'POST':
 
-        formulario = EventoFormulario(req.POST)
+        formulario = EventoFormulario(req.POST, req.FILES)
 
         if formulario.is_valid():
 

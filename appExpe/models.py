@@ -45,7 +45,7 @@ class Evento(models.Model):
     imagen = models.ImageField(upload_to='appExpe\static\images', blank = True)
     imagen2 = models.ImageField(upload_to='appExpe\static\images', blank=True)
     imagen3 = models.ImageField(upload_to='appExpe\static\images', blank=True)
-    url = models.URLField(max_length=250, null=True)
+    url = models.URLField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.nombre
