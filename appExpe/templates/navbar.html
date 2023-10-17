@@ -7,7 +7,7 @@
                     <img src="{{url_avatar}}" height="30px" alt="avatar">            
                 {% endif %}
                 <li><p>Bienvenido {{user.username}}</p></li> 
-                <li> <a href="{% url 'Perfil' %}">Perfil</a></li>
+                <li> <a href="{% url 'perfil' %}">Perfil</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>

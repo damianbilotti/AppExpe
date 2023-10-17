@@ -10,6 +10,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, CreateView, UpdateView 
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.models import User
 
 
 
@@ -76,31 +77,36 @@ def login_request(req):
             
             if usuario :
                 login(req, usuario)
-                return redirect( "inicio" )           
+                return render(req, "inicio.html", {"mensaje": f"Bienvenido {usuario} !"})           
         else:
             return render(req, "inicio.html", {"mensaje": f"Datos incorrectos."})
     else:
         formulario = AuthenticationForm()
         return render(req, "login.html", {"formulario":formulario})
     
-def registroUsuario(req):
 
-    if req.method == "POST":
-
-        formulario = RegistroUsuario (req.POST)
-
-        if formulario.is_valid():
-
-            data = formulario.cleaned_data
-            usuario = data["username"]
-            formulario.save()
-            return render (req, "inicio.html", {"mensaje": f"Usuario {usuario} creado con éxito!"})
-        
-        return render (req, "inicio.html", {"mensaje": f"Formulario inválido, por favor, intente nuevamente"})
     
-    else: 
-        formulario = RegistroUsuario
-        return render (req, "registroUsuario.html", {"formulario": formulario})
+
+def registroUsuario(req):
+    if req.method == "POST":
+        formulario = RegistroUsuario(req.POST)
+        if formulario.is_valid():
+            usuario = formulario.cleaned_data['username']
+            if User.objects.filter(username=usuario).exists():
+                return render(req, "inicio.html")
+            else:
+                password1 = formulario.cleaned_data['password1']
+                usuario = User.objects.create_user(username=usuario, password=password1)
+                return render(req,"inicio.html", {"mensaje": f"Usuario creado con éxito!"})
+        else:
+            # Devuelve una respuesta en caso de formulario inválido 
+            return render(req, "registroUsuario.html", {"formulario": formulario})
+    else:
+        formulario = RegistroUsuario()
+        return render(req, "registroUsuario.html", {"formulario": formulario})
+
+def inicio(req):
+    return render (req, "inicio.html")
     
 def editarPerfil(req):
 

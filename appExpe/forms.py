@@ -25,6 +25,12 @@ class RegistroUsuario(UserCreationForm):
         model = User
         fields = ["username", "password1", "password2", "email"]
 
+    def __init__(self, *args, **kwargs):
+        super(RegistroUsuario, self).__init__(*args, **kwargs)
+        self.fields['username'].error_messages['unique'] = 'El nombre de usuario ya está en uso. Por favor, elige otro.'
+    
+    
+
 
 class EditarUsuario(UserChangeForm):
 
@@ -39,6 +45,10 @@ class EditarUsuario(UserChangeForm):
     class Meta:
         model=User
         fields = ("email", "first_name", "last_name", "password1", "password2")
+
+    def __init__(self, *args, **kwargs):
+        super(RegistroUsuario, self).__init__(*args, **kwargs)
+        self.fields['username'].error_messages['unique'] = 'El nombre de usuario ya está en uso. Por favor, elige otro.'
 
     def clean_password2(self):
 
