@@ -20,15 +20,23 @@ from django.contrib.auth.models import User
 
 def musica (req):
 
-    return render (req, "musica.html")
+    eventos_musica = Evento.objects.filter(categoria__nombre="Musica")
+    
+    return render (req, "musica.html", {"eventos_musica": eventos_musica})
+
 
 def teatro(req):
 
-    return render (req, "teatro.html")
+    eventos_teatro = Evento.objects.filter(categoria__nombre="Teatro")
+    
+    return render (req, "teatro.html", {"eventos_teatro": eventos_teatro})
+
 
 def danza(req):
 
-    return render (req, "danza.html")
+    eventos_danza = Evento.objects.filter(categoria__nombre="Danza")
+    
+    return render (req, "danza.html", {"eventos_danza": eventos_danza})
 
 def inicio(req):
 
@@ -36,7 +44,21 @@ def inicio(req):
 
 def literatura(req):
 
-    return render (req, "literatura.html")
+    eventos_literatura = Evento.objects.filter(categoria__nombre="Literatura")
+    
+    return render (req, "literatura.html", {"eventos_literatura": eventos_literatura})
+
+def cine(req):
+
+    eventos_cine = Evento.objects.filter(categoria__nombre="Cine")
+    
+    return render (req, "cine.html", {"eventos_cine": eventos_cine})
+
+def visuales(req):
+
+    eventos_visuales = Evento.objects.filter(categoria__nombre="Visuales")
+    
+    return render (req, "visuales.html", {"eventos_visuales": eventos_visuales})
 
 def contacto(req):
 
@@ -88,8 +110,11 @@ def login_request(req):
     
 
 def registroUsuario(req):
+
     if req.method == "POST":
+
         formulario = RegistroUsuario(req.POST)
+
         if formulario.is_valid():
             usuario = formulario.cleaned_data['username']
             if User.objects.filter(username=usuario).exists():
@@ -225,6 +250,7 @@ def creaEvento(req):
 
             data = formulario.cleaned_data
             evento = Evento(nombre=data["nombre"], 
+            categoria=data["categoria"],
             artista=data["artista"], 
             fecha=data["fecha"], 
             lugar=data["lugar"], 

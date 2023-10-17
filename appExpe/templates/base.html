@@ -86,13 +86,13 @@
     </div>
     <div class="column">
       <div class="sponsors">
-        <h2>Site Sponsors</h2>
-        <div class="b_250"><a href="#"><img src="{% static 'images/eventos.png'  %}" width="250" height="250" alt="" /></a></div>
+        <h2>Navegá</h2>
+        <div class="b_250"><a href='{% url "listaEventos" %}'><img src="{% static 'images/eventos.png'  %}" width="250" height="250" alt="" /></a></div>
         <div class="b_125">
           <ul>
-            <li><a href="#"><img src="{% static 'images/cine.png' %}" width="125" height="125" alt="" /></a></li>
+            <li><a href='{% url "cine" %}'><img src="{% static 'images/cine.png' %}" width="125" height="125" alt="" /></a></li>
             <li><a href='{% url "danza" %}'><img src="{% static 'images/danza.png' %}" width="125" height="125" alt="" /></a></li>
-            <li><a href="#"><img src="{% static 'images/visuales.png' %}" width="125" height="125" alt="" /></a></li>
+            <li><a href='{% url "visuales" %}'><img src="{% static 'images/visuales.png' %}" width="125" height="125" alt="" /></a></li>
             <li><a href='{% url "teatro" %}'><img src="{% static 'images/teatro.png' %}" width="125" height="125" alt="" /></a></li>
             <li><a href='{% url "literatura" %}'><img src="{% static 'images/literatura.png' %}" width="125" height="125" alt="" /></a></li>
             <li class="last"><a href='{% url "musica" %}'><img src="{% static 'images/musica.png' %}" width="125" height="125" alt="" /></a></li>

@@ -8,19 +8,19 @@
       <div id="topnav">
       </div>
       <div id="logo">
-        <h1><a href="/appExpe/inicio"><strong>Literatura</strong> <strong></strong></a> </h1>
+        <h1><a href="/appExpe/inicio"><strong>Cine</strong> <strong></strong></a> </h1>
         <ul>
-            {% for evento in eventos_literatura %}
+            {% for evento in eventos_cine %}
             <br>
             <br>
             <br>
                 <li>
-                    <h2>Evento: {{ evento.nombre }}</h2>
-                    <h2>Categoría: {{ evento.categoria.nombre }}</h2>
-                    <h2>Artista: {{ evento.artista }}</h2>
-                    <h2>Fecha: {{ evento.fecha }}</h2>
-                    <h2>Lugar: {{ evento.lugar }}</h2>
-                    <h2>Texto: {{ evento.texto }}</h2>
+                    <h2>Evento: {{ evento.nombre }}</h>
+                    <h3>Categoría: {{ evento.categoria.nombre }}</h3>
+                    <h3>Artista: {{ evento.artista }}</h3>
+                    <h3>Fecha: {{ evento.fecha }}</h3>
+                    <h3>Lugar: {{ evento.lugar }}</h3>
+                    <h3>Texto: {{ evento.texto }}</h3>
                     
                     {% if evento.imagen %}
                     <img src="{{ evento.imagen.url }}" alt="{{ evento.nombre }}" />  

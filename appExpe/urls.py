@@ -8,6 +8,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('musica/', musica, name="musica"),
     path('teatro/', teatro, name="teatro"),
+    path('cine/', cine, name="cine"),
+    path('visuales/', visuales, name="visuales"),
     path('danza/', danza, name="danza"),
     path('inicio/', inicio, name="inicio"),
     path('literatura/', literatura, name="literatura"),
