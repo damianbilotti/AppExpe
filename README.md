@@ -1,5 +1,5 @@
 # AppExpe
-AppExpedicionCultural v2
+AppExpedicionCultural v3
 
 Pagina de Cultura Argentina diseñada por Damián Bilotti
 La página continúa en desarrollo y formará parte de mi repositorio de github para presentarla como proyecto de CV cuando vaya mejorandola.
